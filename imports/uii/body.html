@@ -5,17 +5,32 @@
 <body>
   <div class="container">
     <header>
-      <h1>Todo List</h1>
+      <h1>Listado de tareas({{incompleteCount}})</h1>
+	  
+	  <label class="hide-completed">
+        <input type="checkbox" />
+        Esconder tareas acabadas
+      </label>
+	  
+	{{> loginButtons}}
+	  
+      {{#if currentUser}}
+        <form class="new-task">
+          <input type="text" name="text" placeholder="Añadir tarea" />
+        </form>
+      {{/if}}
+	  
     </header>
  
-    <ul>
+   <ul>
       {{#each tasks}}
         {{> task}}
       {{/each}}
-    </ul>
+    </ul> 
   </div>
+  
 </body>
  
-<template name="task">
+<!--<template name="task">
   <li>{{text}}</li>
-</template>
+</template> -->
